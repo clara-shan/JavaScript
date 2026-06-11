@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>分支语句</title>
+</head>
+
+<body>
+
+
+  <script>
+    // if单分支
+    // // 输入
+    // let num = prompt('请输入一个数：')
+    // // 判断
+    // alert(num % 4 === 0 && !(num % 100 === 0))
+    // let score = prompt('请输入高考成绩:')
+    // if (score >= 425) {
+    //   alert('恭喜你过了本科线')
+    // }
+
+
+    // if双分支
+    // let uname = prompt('请输入您的用户名:')
+    // // passWord是字符串,所以条件里数字要加引号
+    // let passWord = prompt('请输入您的密码:')
+    // // 字符串要用引号
+    // if (uname === 'clara' && passWord === '123456') {
+    //   alert('登录成功')
+    // } else {
+    //   alert('登录失败')
+    // }
+
+
+    // let year = prompt('请输入年份:')
+    // if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+    //   // if (year % 4 === 0 && year / 100 !== 0 || year % 400 === 0) {
+    //   // 模板字符串要用反引号引起来
+    //   alert(`${year}是闰年`)
+    // } else {
+    //   alert(`${year}是平年`)
+    // }
+
+
+    // if多分支
+    // let score = +prompt('请输入成绩:')
+    // // 第一个条件把90分以下的都筛出去了,所以下面的条件里不用写<90了
+    // if (score >= 90) {
+    //   alert('优秀')
+    // }
+    // else if (score >= 70) {
+    //   // else if (score >= 70 && score < 90) {
+    //   alert('良好')
+    // } else if (score >= 60) {
+    //   alert('及格')
+    // } else {
+    //   alert('不及格')
+    // }
+
+
+    // 三元运算符
+    // let num1 = +prompt('请输入一个数:')
+    // let num2 = +prompt('请再输入一个数:')
+    // // console.log(num1 > num2 ? num1 : num2)
+
+    // num1 > num2 ? alert(`最大值是:${num1}`) : alert(`最大值是:${num2}`)
+
+
+    // let num = +prompt('请输入数字:')
+    // num < 10 ? alert(`0${num}`) : alert(num)
+
+    // let num = prompt('请输入数字:')
+    // num = num < 10 ? 0 + num : num
+    // // num = num > 10 ? num : 0 + num
+    // alert(num)
+
+    // switch语句
+    let num1 = +prompt('请输入第一个数字:')
+    let num2 = +prompt('请输入第二个数字:')
+    // symbol是字符串,所以case后面的加号要放在引号里
+    // let symbol = prompt('请输入数字运算符:')
+    let sp = prompt('请输入数字运算符:')
+    // switch (symbol) {
+    switch (sp) {
+      case '+':
+        alert(`你选择了加法,结果为${num1 + num2}`)
+        break
+      case '-':
+        alert(`你选择了减法,结果为${num1 - num2}`)
+        break
+      case '*':
+        alert(`你选择了乘法,结果为${num1 * num2}`)
+        break
+      case '/':
+        alert(`你选择了除法,结果为${num1 / num2}`)
+        break
+      default:
+        alert(`请输入+-*/`)
+    }
+  </script>
+</body>
+
+</html>

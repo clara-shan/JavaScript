@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>冒泡排序</title>
+</head>
+
+<body>
+
+
+  <script>
+    let arr = [1, 8, 3, 9, 7, 54, 11]
+    for (let i = 0; i < arr.length - 1; i++) {
+      for (let j = 0; j < arr.length - i - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
+          // 可以直接把arr[j]里的数据给temp
+          // let temp = null
+          let temp = arr[j + 1]
+          arr[j + 1] = arr[j]
+          arr[j] = temp
+        }
+      }
+    }
+    document.write(arr)
+  </script>
+</body>
+
+</html>

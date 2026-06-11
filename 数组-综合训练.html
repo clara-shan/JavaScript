@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>综合</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    .chart-bar {
+      display: flex;
+      align-items: flex-end;
+      width: 500px;
+      height: 300px;
+      margin: auto;
+      border-left: 2px solid skyblue;
+      border-bottom: 2px solid skyblue;
+    }
+
+    /* .chart-bar ul {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-evenly;
+      width: 100%;
+    } */
+
+    .chart-bar li {
+      /* 有display: flex；flex-direction: column;和align-items: flex-end;才生效 */
+      /* display: flex;后子元素高度自动拉伸与父级同高，所以ul和chart-bar盒子一样高，li和ul一样高 */
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+      align-items: flex-end;
+      width: 100%;
+      /* li开了display：flex，子元素变成自动挤压或拉伸，不再遵循行内/块级规则
+            text-align只对块级元素里的文本内容生效 */
+      /* text-align: center; */
+      align-items: center;
+    }
+
+    .chart-bar li .bar {
+      width: 50px;
+      background-color: skyblue;
+    }
+
+    .chart-bar li h4 {
+      margin-bottom: -25px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <script>
+    // prompt窗口弹四次
+    // let arr = []
+    // for (let i = 1; i < 5; i++) {
+    //   arr.push(prompt(`请输入第${i}季度的数据`))
+    // }
+    // // 替换柱状图数据并打印柱状图
+    // // 盒子头部
+    // document.write('<div class="chart-bar">')
+
+    // // 盒子中间
+    // for (let i = 0; i < arr.length; i++) {
+    //   document.write(`
+    //   <ul>
+    //     <li>
+    //     <p>${arr[i]}</p>
+    //     <div class="bar" style="height: ${arr[i]}px;"></div>
+    //     <h4>第${i + 1}季度</h4>
+    //     </li>
+    //   </ul>
+    //   `)
+    // }
+
+    // // 盒子底部
+    // document.write('</div>')
+
+    // 再练习一遍
+    // 弹出四次对话框
+    let arr = []
+    for (let i = 1; i < 5; i++) {
+      // 把用户输入的数据放到数组里
+      // 不用转换成数字，因为后面是把该数据放到矩形盒子bar的height： px里
+      arr.push(prompt(`请输入第${i}季度的数据`))
+    }
+    // 打印柱状图
+    // 先执行 document.write('<div class="chart-bar">') → 写入了外层盒子的开始标签
+    // 然后立刻执行 document.write('</div>') → 直接闭合了 chart-bar
+    // 最后才循环写入 <ul>、<li>、数据和季度文字
+    // 浏览器解析时，会直接认为 chart-bar 已经闭合了，所以后面写的所有内容（柱子、文字）都被放到了 chart-bar 外面，而不是它里面。
+    // // 柱状图外层
+    // document.write(`
+    //   <div class="chart-bar">
+    // `)
+    // document.write(`
+    //   </div>
+    // `)
+    // // 柱状图里面的数据
+    // for (let i = 0; i < arr.length; i++) {
+    //   document.write(`
+    //       <ul>
+    //       <li>
+    //         <p>${arr[i]}</p>
+    //         <div class = "bar" style = "height: ${arr[i]}px"></div>
+    //         <h4>第${i + 1}季度</h4>
+    //       </li>
+    //     <ul>
+    //     `)
+    // }
+    // 柱状图头部
+    document.write(`
+      <div class = "chart-bar">
+    `)
+
+    // 柱状图中间
+    for (let i = 0; i < arr.length; i++) {
+      document.write(`
+        <li>
+          <p>${arr[i]}</p>
+          <div class = "bar" style = "height: ${arr[i]}px"></div>
+          <h4>第${i + 1}季度</h4>
+        </li>
+    `)
+    }
+
+    // 柱状图底部
+    document.write(`
+        </div>
+    `)
+  </script>
+</body>
+
+</html>

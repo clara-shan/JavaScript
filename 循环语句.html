@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>循环语句</title>
+
+  <style>
+    span {
+      display: inline-block;
+      width: 70px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      border: 1px solid rgb(135, 206, 235);
+      padding: 2px 5px;
+      margin: 2px;
+      border-radius: 3px;
+      box-shadow: 2px 2px 2px rgb(135, 206, 235, .4);
+      background-color: rgb(135, 206, 235, .1);
+      color: rgb(114, 192, 222);
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <script>
+    // // 断点演示
+    // let num = 1
+    // num++
+    // alert(num)
+
+    // while循环
+    // let i = 1
+    // while (i <= 10) {
+    //   document.write('加油!<br>')
+    //   i++
+    // }
+
+    // let i = 1
+    // let j = +prompt('请输入循环次数:')
+    // while (i <= j) {
+    //   document.write('加油!<br>')
+    //   i++
+    // }
+
+    // // 输出1-100
+    // let i = 1
+    // while (i <= 100) {
+    //   document.write(`这是第${i}个数<br>`)
+    //   i++
+    // }
+
+    // // 输出1-100的累加和:声明累加和的变量sum,把i加到sum里
+    // let sum = 0
+    // let i = 1
+    // while (i <= 100) {
+    //   sum = sum + i
+    //   document.write(sum, '<br>')
+    //   i++
+    // }
+    // // 输出最后结果
+    // document.write(sum)
+
+    // 计算1-100之间的所有偶数之和
+    // let i = 1
+    // let sum = 0
+    // while (i <= 100) {
+    //   if (i % 2 === 0) {
+    //     sum = sum + i
+    //     // while循环三要素：变量起始值（i=1），终止条件（i<=100),变量变化量（没写）
+    // 没有改变i的值，i=1，永远满足i<=100，会造成死循环
+    //   }
+    // }
+    // document.write(sum)
+    // let i = 1
+    // let sum = 0
+    // while (i <= 100) {
+    //   if (i % 2 === 0) {
+    //     sum += i
+    //     // i++ 写在外面，每次循环都要自加,写在里面又是死循环了，因为1不是偶数，不执行if语句，没有自加，还是1
+    //   }
+    //   i++
+    // }
+    // document.write(sum)
+
+    // for循环
+    // // 输出1-100岁
+    // for (let i = 1; i <= 100; i++) {
+    //   document.write(i + '岁')
+    // }
+
+    // // 求1-100之间所有偶数和
+    // let sum = 0
+    // for (let i = 1; i <= 100; i++) {
+    //   if (i % 2 === 0) {
+    //     sum += i
+    //   }
+    // }
+    // document.write(sum)
+
+    // // 打印五个小星星
+    // for (let i = 0; i < 5; i++) {
+    //   document.write('⭐')
+    // }
+
+    // // 遍历数组
+    // let arr = ['马超', '赵云', '张飞', '关羽', '黄忠']
+    // for (let i = 0; i < arr.length; i++) {
+    //   document.write(arr[i])
+    // }
+
+    // 练习
+    // for (let i = 1; i < 4; i++) {
+    //   document.write(`第${i}天<br>`)
+    //   for (let j = 1; j < 6; j++) {
+    //     document.write(`记住第${j}个单词<br>`)
+    //   }
+    // }
+
+    // for (let i = 0; i < 5; i++) {
+    //   for (let j = 0; j < 5; j++) {
+    //     document.write('⭐')
+    //   }
+    //   document.write('<br>')
+    // }
+
+    // let row = +prompt('请输入行数：')
+    // let col = +prompt('请输入列数：')
+    // // 这么写每次循环都会弹出对话框
+    // // for (let i = 0; i < +prompt('请输入行数：'); i++) {
+    // //   for (let j = 0; j < +prompt('请输入列数：'); j++) {
+    // for (let i = 0; i < row; i++) {
+    //   for (let j = 0; j < col; j++) {
+    //     document.write('⭐')
+    //   }
+    //   document.write('<br>')
+    // }
+
+    // for (let i = 1; i <= 5; i++) {
+    //   for (let j = 1; j <= i; j++) {
+    //     document.write('⭐')
+    //   }
+    //   document.write('<br>')
+    // }
+
+    for (let i = 1; i <= 9; i++) {
+      for (let j = 1; j <= i; j++) {
+        // 结合CSS
+        document.write(`<span>${j} * ${i} = ${i * j}</span> `)
+        // document.write(`${j}*${i}=${i * j} `)
+      }
+      document.write('<br>')
+    }
+
+  </script>
+</body>
+
+</html>

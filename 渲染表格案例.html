@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模板字符串</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      height: 80px;
+      margin: 0 auto;
+    }
+
+    caption {
+      margin-bottom: 10px;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid #000;
+    }
+
+    th,
+    td {
+      padding: 20px 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <script>
+    // 输入
+    let price = +prompt('请输入商品的价格:')
+    let num = +prompt('请输入商品的数量:')
+    let address = prompt('请输入收货地址:')
+    // 计算总价
+    let total = price * num
+    // 输出
+    document.write(`
+<table>
+    <caption>订单确认</caption>
+    <tr>
+      <th>商品名称</th>
+      <th>商品价格</th>
+      <th>商品数量</th>
+      <th>总价</th>
+      <th>收货地址</th>
+    </tr>
+    <tr>
+      <td>iphone17 Pro Max</td>
+      <td>${price}</td>
+      <td>${num}</td>
+      <td>${total}</td>
+      <td>${address}</td>
+    </tr>
+  </table>
+`)
+  </script>
+</body>
+
+</html>

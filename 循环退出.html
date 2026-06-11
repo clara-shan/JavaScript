@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>循环退出</title>
+</head>
+
+<body>
+
+
+  <script>
+    // while (true) {
+    //   let str = prompt('Hello')
+    //   // 退出条件
+    //   if (str === Hi) {
+    //     break
+    //   }
+    // }
+
+    let money = 1000
+    // 必须写在外面，写在循环里面的话每次循环都会重置，操纵就没意义了
+    while (true) {
+      // 一直弹出你要选择什么操作的对话框
+      let re = +prompt(`
+      请您选择操作：
+      1.存钱
+      2.取钱
+      3.查看余额
+      4.退出
+      `)
+      // 跳出循环
+      if (re === 4) {
+        break
+      }
+      switch (re) {
+        case 1:
+          let cun = +prompt('请输入您要存的金额')
+          money += cun
+          break
+        case 2:
+          let qu = +prompt('请输入您要取的金额')
+          money -= qu
+          break
+        case 3:
+          alert(`您的余额为：${money}`)
+          break
+      }
+    }
+  </script>
+</body>
+
+</html>
