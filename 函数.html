@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数</title>
+
+  <style>
+    span {
+      display: inline-block;
+      width: 80px;
+      height: 20px;
+      margin: 10px;
+      padding: 5px;
+      line-height: 20px;
+      text-align: center;
+      border: 1px solid rgb(135, 206, 235);
+      border-radius: 5px;
+      background-color: rgb(135, 206, 235, .3);
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <script>
+    // 把九九乘法表封装到函数里面
+    // function creatMultiplicationTable() {
+    //   for (let i = 1; i <= 9; i++) {
+    //     for (let j = 1; j <= i; j++) {
+    //       document.write(`<span>${j} * ${i} = ${i * j}</span>`)
+    //     }
+    //     document.write('<br>')
+    //   }
+    // }
+    // creatMultiplicationTable()
+    // creatMultiplicationTable()
+
+    // 求1-100的和
+    // function getSum100() {
+    //   let sum = 0
+    //   for (let i = 1; i <= 100; i++) {
+    //     // 在循环里重复声明sum,sum在循环内部声明、document.write访问不到
+    //     // let sum += i
+    //     sum += i
+    //   }
+    //   document.write(`1-100的和：${sum}`)
+    // }
+    // getSum100()
+
+    // 函数传参
+    // function getSum(num) {
+    //   let sum = 0
+    //   for (let i = 1; i <= num; i++) {
+    //     // 在循环里重复声明sum,sum在循环内部声明、document.write访问不到
+    //     // let sum += i
+    //     sum += i
+    //   }
+    //   document.write(`1-${num}的和：${sum}`)
+    //   document.write('<br>')
+    // }
+    // getSum(50)
+    // getSum(660)
+
+    // 改进
+    // function getSum(num1, num2) {
+    //   let sum = 0
+    //   for (let i = num1; num1 <= num2; i++) {
+    //     // 在循环里重复声明sum,sum在循环内部声明、document.write访问不到
+    //     // let sum += i
+    //     sum += i
+    //   }
+    //   document.write(`${num1}-${num2}的和：${sum}`)
+    //   document.write('<br>')
+    // }
+    // getSum(50, 51)
+    // getSum(1, 50)
+
+    // 严谨
+    // function getSum(num1 = 0, num2 = 0) {
+    //   let sum = 0
+    //   for (let i = num1; num1 <= num2; i++) {
+    //     // 在循环里重复声明sum,sum在循环内部声明、document.write访问不到
+    //     // let sum += i
+    //     sum += i
+    //   }
+    //   document.write(`${num1}-${num2}的和：${sum}`)
+    //   document.write('<br>')
+    // }
+    // getSum(50, 51)
+    // getSum(1, 50)
+    // getSum()
+
+    // 练习
+    // function getArrSum(arr = []) {
+    //   let sum = 0
+    //   for (let i = 0; i < arr.length; i++) {
+    //     sum += arr[i]
+    //   }
+    //   console.log(sum)
+    // }
+    // getArrSum([1, 2, 3, 4, 5])
+    // getArrSum()
+
+    // 实参可以是变量
+    // function getSum(x = 0, y = 0) {
+    //   console.log(x + y)
+    // }
+    // let num1 = +prompt('请输入第一个实参：')
+    // let num2 = +prompt('请输入第二个实参：')
+    // getSum(num1, num2)
+
+    // 函数返回值
+    // 任意两个数中的最大值
+    // function max(x = 0, y = 0) {
+    //   let temp = null
+    //   if (x < y) {
+    //     temp = x
+    //     x = y
+    //     y = temp
+    //   }
+    //   return x
+    // 简写
+    //   return x > y ? x : y
+    // }
+    // let num1 = +prompt('请输入一个数：')
+    // let num2 = +prompt('请再输入一个数：')
+    // max(num1, num2)
+    // console.log(max(num1, num2))
+
+    // 任意数组中的最大值
+    // function getMax(arr = []) {
+    //   let temp = null
+    //   for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i] < arr[i + 1]) {
+    //       temp = arr[i + 1]
+    //     }
+    //   }
+    //   return temp
+    // }
+    // let arrMax = getMax([1, 5, 44, 89, 99, 56])
+    // let arrMax2 = getMax([9, 5, 88, 55, 99, 87, 56, 123])
+
+    // console.log(arrMax)
+    // console.log(arrMax2)
+
+
+    // function getMax(arr = []) {
+    //   let max = arr[0]
+    //   let min = arr[0]
+    //   for (let i = 0; i < arr.length; i++) {
+    //     if (max < arr[i]) {
+    //       max = arr[i]
+    //     }
+    //     if (min > arr[i]) {
+    //       min = arr[i]
+    //     }
+    //   }
+    //   // 返回多个数据→返回数组
+    //   return [max, min]
+    // }
+    // let newArr = getMax([1, 5, 8, 9, 21, 45])
+    // console.log(newArr)
+
+    // 秒数转换为时分秒
+    // 用户输入秒数
+    let second = +prompt('请输入秒数:')
+    // 封装函数
+    function getTime(t) {
+      // 转换
+      h = parseInt(t / 60 / 60 % 24)
+      m = parseInt(t / 60 % 60)
+      s = parseInt(t % 60)
+      // 补零
+      h = h < 10 ? '0' + h : h
+      m = m < 10 ? '0' + m : m
+      s = s < 10 ? '0' + s : s
+      return `转换之后${h}时${m}分${s}秒`
+    }
+    // 调用函数
+    let str = getTime(second)
+    document.write(str)
+  </script>
+</body>
+
+</html>
