@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+
+
+  <script>
+    // let obj = {
+    // goods: '小米',
+    // name: '小米10 青春版',
+    // num: '1000012816024',
+    // weight: '0.55kg',
+    // address: '中国大陆',
+    // sing: function () {
+    // console.log('暗流')
+    // },
+    // dance: function () {
+    // console.log('拉丁')
+    // }
+    // }
+    // console.log(obj)
+    // obj.name = '小米10 PLUS'
+    // obj.color = '粉色'
+    // console.log(obj.address)
+    // console.log(obj.name)
+    // console.log(obj.color)
+    // console.log(obj.num)
+    // console.log(obj.weight)
+    // console.log(obj.goods)
+    // console.log(obj['goods'])
+    // console.log(obj['name'])
+    // obj.sing()
+    // obj.dance()
+    // for (let k in obj) {
+    // console.log(k)
+    // console.log(obj[k])
+    // }
+
+    // 练习
+    // 对象数组
+    // let students = [
+    //   { name: '小明', age: 18, gender: '男', hometown: '河北省' },
+    //   { name: '小红', age: 19, gender: '女', hometown: '河南省' },
+    //   { name: '小刚', age: 17, gender: '男', hometown: '陕西省' },
+    //   { name: '小丽', age: 18, gender: '女', hometown: '江苏省' }
+    // ]
+    // 找数组中的每组数据 arr[i]
+    // for (let i = 0; i < students.length; i++) {
+    // 下标索引号 
+    // console.log(i)
+    // 每一个对象
+    //   console.log(students[i])
+    //   console.log(students[i].name)
+    //   console.log(students[i].hometown)
+    // }
+    // 数组用for (let i=0; i < arr.length; i++){} 
+    // 对象用for (let k in obj) {} 
+
+    // N-M之间的随机整数
+    // function getRandom(N, M) {
+    //   return Math.floor(Math.random() * (M - N + 1)) + N
+    // }
+    // console.log(getRandom(4, 19))
+
+    // let arr = ['赵云', '黄忠', '关羽', '田雷', '郑朋', '甜玉米']
+    // let random = Math.floor(Math.random() * arr.length)
+    // console.log(random)
+    // console.log(arr[random])
+    // // 避免重复,删除随机抽到的数据
+    // arr.splice(random, 1)
+    // console.log(arr)
+
+    // 猜数字游戏
+    // let random = getRandom(1, 100)
+    // let i = 1
+    // while (i <= 4) {
+    //   let num = +prompt('请输入一个数：')
+    //   if (num < random) {
+    //     alert(`猜小了，继续猜，您还有${4 - i}次机会`)
+    //     i++
+    //   } else if (num > random) {
+    //     alert(`猜大了，继续猜，您还有${4 - i}次机会`)
+    //     i++
+    //   } else {
+    //     alert('猜对了！')
+    //     break
+    //   }
+    // }
+    // 次数明显用for
+    // for (let i = 1; i <= 10; i++) {
+    //   let num = +prompt('请输入一个数：')
+    //   if (num < random) {
+    //     alert(`猜小了，继续猜，您还有${10 - i}次机会`)
+    //   } else if (num > random) {
+    //     alert(`猜大了，继续猜，您还有${10 - i}次机会`)
+    //   } else if (i = 10) {
+    //     alert(`您还有${10 - i}次机会`)
+    //   } else {
+    //     alert('猜对了！')
+    //     break
+    //   }
+    // }
+    // 用开关变量 flag
+    // let flag = true
+    // for (let i = 1; i <= 10; i++) {
+    //   let num = +prompt('请输入一个数：')
+    //   if (num < random) {
+    //     alert(`猜小了，继续猜`)
+    //   } else if (num > random) {
+    //     alert(`猜大了，继续猜`)
+    //   } else {
+    //     flag = false
+    //     alert('猜对了！')
+    //     break
+    //   }
+    // }
+    // if (flag) {
+    //   alert('次数已用完')
+    // }
+
+    // 生成随机颜色
+    // 1.定义函数
+    function getRandomColor(flag = true) {
+      if (flag) {
+        // flag是true.十六进制
+        //例： let str = '#'
+        // str += 'f'
+        let str = '#'
+        let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+        // 用for循环随机抽6次 累加到str里
+        for (let i = 1; i <= 6; i++) {
+          // 每次从数组里随机抽一个
+          // random是数组的索引号
+          let random = Math.floor(Math.random() * arr.length)
+          str += arr[random]
+        }
+        return str
+      } else {
+        // flag是false
+        // 红绿蓝每个数值随机生成
+        let r = Math.floor(Math.random() * 256)
+        let g = Math.floor(Math.random() * 256)
+        let b = Math.floor(Math.random() * 256)
+        return `rgb(${r}, ${g}, ${b})`
+      }
+    }
+    // 2.调用函数
+    console.log(getRandomColor(false))
+    console.log(getRandomColor(true))
+
+  </script>
+</body>
+
+</html>
