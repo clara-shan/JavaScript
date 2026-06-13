@@ -170,9 +170,9 @@
     // 封装函数
     function getTime(t) {
       // 转换
-      h = parseInt(t / 60 / 60 % 24)
-      m = parseInt(t / 60 % 60)
-      s = parseInt(t % 60)
+      let h = parseInt(t / 60 / 60 % 24)
+      let m = parseInt(t / 60 % 60)
+      let s = parseInt(t % 60)
       // 补零
       h = h < 10 ? '0' + h : h
       m = m < 10 ? '0' + m : m
