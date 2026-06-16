@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>巩固练习</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    table caption {
+      font-weight: 700;
+      font-size: large;
+    }
+
+    table th,
+    td {
+      width: 200px;
+      height: 60px;
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <script>
+    // 获取用户信息
+    // let uname = prompt('请输入您的姓名：')
+    // let gender = prompt('请输入您的性别：')
+    // let age = +prompt('请输入您的年龄：')
+    // console.log(`用户的姓名：${uname}`)
+    // console.log(`用户的性别：${gender}`)
+    // console.log(`用户的年龄：${age}`)
+
+    // 增加年龄
+    // let age = +prompt('请输入您的年龄：')
+    // console.log(`据我估计，五年后，你可能${age + 5}岁了`)
+
+    // 计算银行卡余额案例
+    let org = +prompt('请输入您的银行卡余额：')
+    let water = +prompt('请输入您的水费：')
+    let power = +prompt('请输入您的电费：')
+    let internal = +prompt('请输入您的网费：')
+
+    document.write(`
+        <table>
+          <caption>2026年6月消费指支出</caption>
+          <tr>
+            <th>银行卡余额</th>
+            <th>水费</th>
+            <th>电费</th>
+            <th>网费</th>
+            <th>银行卡余额</th>
+          </tr>
+          <tr>
+            <td>${org}</td>
+            <td>${water}</td>
+            <td>${power}</td>
+            <td>${internal}</td>
+            <td>${org - water - power - internal}</td>
+          </tr>
+        </table>
+    `)
+
+    // 易错点总结
+    // 字面量本质是原始数据本身
+    // +'123'  +把字符串转换成数值型
+    // border-collapse是表格容器属性，只能作用于<table>元素
+
+  </script>
+</body>
+
+</html>

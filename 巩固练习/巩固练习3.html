@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>巩固练习3</title>
+</head>
+
+<body>
+
+  <script>
+    // 需求1：让用户输入五个有效年龄（0-100之间），**放入数组中**
+    // * 必须输入五个有效年龄年龄，如果是无效年龄，则不能放入数组中
+    // * 需求2：打印出所有成年人的年龄 (数组筛选)
+    // * 需求3：打印出所有人总年龄 （累加）
+    // * 需求4：打印出所有人的平均年龄 （累加）
+    // * 需求5：打印出最大年龄和最小年龄 （最大值）
+    // let arr = []
+    // for (let i = 0; i < 5; i++) {
+    //   let age = +prompt('输入有效年龄（0-100之间）')
+    //   if (age >= 0 && age <= 100) {
+    //     arr.push(age)
+    //   }
+    // }
+    // let sum = 0
+    // let max = arr[0]
+    // let min = arr[0]
+    // for (let i = 0; i < arr.length; i++) {
+    //   if (arr[i] >= 18) {
+    //     document.write(arr[i])
+    //     document.write('<br>')
+    //   }
+    //   if (max < arr[i]) {
+    //     max = arr[i]
+    //   }
+    //   if (min > arr[i]) {
+    //     min = arr[i]
+    //   }
+    //   sum += arr[i]
+    // }
+    // document.write(`所有人的总年龄：${sum}<br>`)
+    // document.write(`所有人的平均年龄：${sum / arr.length}<br>`)
+    // document.write(`最大年龄：${max}<br>`)
+    // document.write(`最小年龄：${min}<br>`)
+    // 找出数组中 元素为10的下标，有则打印该下标，没有则打印-1
+    // let arr = [2, 10, 30, 7, 8, 50]
+    // let arr = [2, 30, 7, 8, 50]
+    // let flag = true
+    // for (let i = 0; i < arr.length; i++) {
+    //   if (arr[i] === 10) {
+    //     document.write(i)
+    //     flag = false
+    //   }
+    // }
+    // if (flag) {
+    //   document.write(-1)
+    // }
+
+    // 使用for循环 - 求出数组元素的和 [5, 8, 9, 2, 1, 5]
+    // let arr = [5, 8, 9, 2, 1, 5]
+    // let sum = 0
+    // for (let i = 0; i < arr.length; i++) {
+    //   sum += arr[i]
+    // }
+    // console.log(sum)
+
+    // 使用for循环 - 求出数组里大于5的i和 [4, 9, 5, 20, 3, 11]
+    // let arr = [4, 9, 5, 20, 3, 11]
+    // let sum = 0
+    // for (let i = 0; i < arr.length; i++) {
+    //   if (arr[i] > 5) {
+    //     sum += arr[i]
+    //   }
+    // }
+    // console.log(sum)
+
+    // 使用for循环 - 求出班级里同学们平均年龄[15, 19, 21, 33, 18, 24]
+    // let arr = [15, 19, 21, 33, 18, 24]
+    // let sum = 0
+    // for (let i = 0; i < arr.length; i++) {
+    //   sum += arr[i]
+    // }
+    // console.log(sum / arr.length)
+
+    // 计算[2, 6, 18, 15, 40] 中能被3整除的偶数的和
+    // let arr = [2, 6, 18, 15, 40]
+    // let sum = 0
+    // for (let i = 0; i < arr.length; i++) {
+    //   if (arr[i] % 3 === 0 && arr[i] % 2 === 0)
+    //     sum += arr[i]
+    // }
+    // console.log(sum)
+
+    // 计算[2, 6, 18, 15, 40] 中能被3整除的偶数的个数
+    // let arr = [2, 6, 18, 15, 40]
+    // let j = 0
+    // for (let i = 0; i < arr.length; i++) {
+    //   if (arr[i] % 3 === 0 && arr[i] % 2 === 0)
+    //     j++
+    // }
+    // console.log(j)
+
+    // 给一个数字数组，该数组中有很多数字0，将不为0的数据存入到一个新的数组中
+    // let arr = [0, 2, 0, 1, 0, 3, 0, 4, 0, 14, 0, 78, 0, 45, 0, 23, 9, 0]
+    // let newArr = []
+    // for (let i = 0; i < arr.length; i++) {
+    //   if (arr[i] !== 0) {
+    //     newArr.push(arr[i])
+    //   }
+    // }
+    // console.log(newArr)
+
+    // 根据用户输入的个数，页面可以渲染对应图片的个数
+    let arr = ['./images/1.webp', './images/2.webp', './images/3.webp', './images/4.webp', './images/5.webp', './images/6.webp', './images/7.webp']
+    let num = +prompt('请输入渲染图片个数：')
+    for (let i = 0; i < num; i++) {
+      document.write(`<img src='${arr[i]}'>`)
+    }
+
+  </script>
+</body>
+
+</html>
