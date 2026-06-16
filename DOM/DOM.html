@@ -37,6 +37,7 @@
   <div class="box"></div>
   <!-- <input type="text" value="请输入用户名："> -->
   <input type="checkbox" name="" id="">
+  <div class="box2" data-name="sprice"></div>
 
   <script>
     // 一、获取DOM元素
@@ -121,10 +122,34 @@
     // const uname = document.querySelector('input')
     // uname.value = 'clara'
     // uname.type = 'password'
-    const iptc = document.querySelector('input')
-    console.log(iptc)
-    iptc.checked = true
+    // const iptc = document.querySelector('input')
+    // console.log(iptc)
+    // iptc.checked = true
     //iptc.checked = 'true' // 有隐式转换 字符串只有''是false，其他都为true
+    // 自定义属性
+    // 获取
+    // const box2 = document.querySelector('.box2')
+    // 打印
+    // console.log(box2.dataset) //打印的是自定义属性集合
+    // console.log(box2.dataset.name)  //打印名为name的自定义属性
+
+    // 定时器-间歇函数
+    // setInterval(function () {
+    //   console.log('Hello World!')
+    // }, 1000)
+    // function sayHi() {
+    //   console.log('Hello World!')
+    // }
+    // setInterval(sayHi, 1000)  //具名函数不能加()
+    let timer = setInterval(function () {
+      console.log('Hello World!')
+    }, 2000)
+    clearInterval(timer)
+    console.log(timer)
+    let n = setInterval(function () {
+      console.log('Hello World!')
+    }, 1000)
+    console.log(n) //返回一个id数字
 
   </script>
 </body>
