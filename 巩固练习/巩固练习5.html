@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象</title>
+</head>
+
+<body>
+
+  <script>
+    // 点名: 每次刷新网页运行, 在控制台 随机输出一位同学的名字 ["老赵", "老李", "小传", "小黑"]，
+    // 如果输出了，则数组中删除这个名字
+    // let arr = ["老赵", "老李", "小传", "小黑"]
+    // let random = Math.floor(Math.random() * arr.length)
+    // console.log(random)
+    // console.log(arr[random])
+    // arr.splice(random, 1)
+    // console.log(arr)
+    // 声明一个变量per, 类型为对象类型
+    // 该对象的属性为性别,年龄,爱好(3个)
+    // 该对象的方法有 说话, 吃饭(2个)
+    // 在控制台分别调用该对象的属性和方法
+    // let per = {
+    //   gender: '女',
+    //   age: 20,
+    //   hobby: '唱歌',
+    //   speak: function () {
+    //     return '你好'
+    //   },
+    //   eat: function () {
+    //     return '鸡腿'
+    //   }
+    // }
+    // console.log(per.age, per.speak())  //对象中的方法本质是函数, 调用需要加()
+    // 随机生成颜色
+    // function randomColor(flag = true) {
+    //   if (flag) {
+    //     let str = '#'
+    //     const arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+    //     for (let i = 1; i <= 6; i++) {
+    //       str += arr[i]
+    //     }
+    //     return str
+    //   } else {
+    //     const r = Math.floor(Math.random() * 256)
+    //     const g = Math.floor(Math.random() * 256)
+    //     const b = Math.floor(Math.random() * 256)
+    //     return `rgb(${r},${g},${b})`
+    //   }
+    // }
+    // console.log(randomColor(false))
+    // 利用对象数组渲染英雄列表案例
+    let datas = [
+      { name: '司马懿', imgSrc: '01.jpg' },
+      { name: '女娲', imgSrc: '02.jpg' },
+      { name: '百里守约', imgSrc: '03.jpg' },
+      { name: '亚瑟', imgSrc: '04.jpg' },
+      { name: '虞姬', imgSrc: '05.jpg' },
+      { name: '张良', imgSrc: '06.jpg' },
+      { name: '安其拉', imgSrc: '07.jpg' },
+      { name: '李白', imgSrc: '08.jpg' },
+      { name: '阿珂', imgSrc: '09.jpg' },
+      { name: '墨子', imgSrc: '10.jpg' },
+      { name: '鲁班', imgSrc: '11.jpg' },
+      { name: '嬴政', imgSrc: '12.jpg' },
+      { name: '孙膑', imgSrc: '13.jpg' },
+      { name: '周瑜', imgSrc: '14.jpg' }
+    ]
+
+
+  </script>
+</body>
+
+</html>
