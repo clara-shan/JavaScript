@@ -99,6 +99,7 @@
     //   return Math.floor(Math.random() * (M - N + 1)) + N
     // }
     // const random = getRandom(1, 4)
+    // console.log(random)
     // img.src = `./images/banner_${random}.jpg`
 
     // 操作元素样式
@@ -141,15 +142,24 @@
     //   console.log('Hello World!')
     // }
     // setInterval(sayHi, 1000)  //具名函数不能加()
+    // let timer = setInterval(function () {
+    //   console.log('Hello World!')
+    // }, 2000)
+    // clearInterval(timer)
+    // console.log(timer)
+    // let n = setInterval(function () {
+    //   console.log('Hello World!')
+    // }, 1000)
+    // console.log(n) //返回一个id数字
+
+    let i = 0
     let timer = setInterval(function () {
-      console.log('Hello World!')
-    }, 2000)
-    clearInterval(timer)
-    console.log(timer)
-    let n = setInterval(function () {
-      console.log('Hello World!')
+      i++
+      document.write(i)
+      if (i === 10) {
+        clearInterval(timer)
+      }
     }, 1000)
-    console.log(n) //返回一个id数字
 
   </script>
 </body>
