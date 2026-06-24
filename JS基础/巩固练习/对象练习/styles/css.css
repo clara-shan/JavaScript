@@ -1,0 +1,26 @@
+table {
+  margin-top: 100px;
+  border-collapse: collapse;
+}
+table td,
+table th {
+  width: 2000px;
+  height: 30px;
+  text-align: center;
+  border: 1px solid #dcdcdc;
+}
+table tr:hover {
+  background-color: #efeff0;
+}
+table th {
+  background-color: #efeff0;
+}
+table .none {
+  display: block;
+  height: 80px;
+  line-height: 80px;
+  color: #dcdcdc;
+}
+table tfoot span {
+  margin-left: 20px;
+}
