@@ -155,34 +155,97 @@
     const img = document.querySelector('.slider-wrapper img')
     const p = document.querySelector('.slider-footer p')
     const color = document.querySelector('.slider-footer')
+    const prev = document.querySelector('.toggle .prev')
+    const next = document.querySelector('.toggle .next')
+    const slider = document.querySelector('.slider')
     let i = 0
     // const circle = document.querySelector('.slider-indicator li:nth-child(i)')
     // 要用模板字符串
     // 写在定时器外面，i不会发生变化，只执行一次
     // const circle = document.querySelector(`.slider-indicator li:nth-child(${i + 1})`)
-    setInterval(function () {
-      i++
-      // 无缝衔接
-      // 播到最后一张图片重置i
+    let timerId = setInterval(function () {
+      // 利用JS自动调用点击事件  加小括号调用函数
+      next.click()
+      // i++
+      // // 无缝衔接
+      // // 播到最后一张图片重置i
       // if (i >= sliderData.length) {
       //   i = 0
       // }
-      // console.log(sliderData[i])
-      // 图片
-      img.src = sliderData[i].url
-      // 文字
-      p.innerHTML = sliderData[i].title
-      // 背景色
-      color.style.backgroundColor = sliderData[i].color
-      // 圆点
-      // 排他思想——先移除其他li上的active，再给当前获取的li加上active
-      // i从0开始
-      document.querySelector(`.slider-indicator .active`).classList.remove('active')
-      document.querySelector(`.slider-indicator li:nth-child(${i + 1})`).classList.add('active')
+      // // console.log(sliderData[i])
+      // // 图片
+      // img.src = sliderData[i].url
+      // // 文字
+      // p.innerHTML = sliderData[i].title
+      // // 背景色
+      // color.style.backgroundColor = sliderData[i].color
+      // // 圆点
+      // // 排他思想——先移除其他li上的active，再给当前获取的li加上active
+      // // i从0开始
+      // document.querySelector(`.slider-indicator .active`).classList.remove('active')
+      // document.querySelector(`.slider-indicator li:nth-child(${i + 1})`).classList.add('active')
       // if (i >= sliderData.length - 1) {
       //   i = -1
       // }
     }, 1000)
+    // 加上事件监听
+    // 鼠标进入盒子定时器关闭
+    slider.addEventListener('mouseenter', function () {
+      clearInterval(timerId)
+    })
+    // 鼠标离开定时器开启
+    slider.addEventListener('mouseleave', function () {
+      clearInterval(timerId)
+      timerId = setInterval(function () {
+        next.click()
+        // i++
+        // // 无缝衔接
+        // // 播到最后一张图片重置i
+        // if (i >= sliderData.length) {
+        //   i = 0
+        // }
+        // console.log(sliderData[i])
+        // // 图片
+        // img.src = sliderData[i].url
+        // // 文字
+        // p.innerHTML = sliderData[i].title
+        // // 背景色
+        // color.style.backgroundColor = sliderData[i].color
+        // // 圆点
+        // // 排他思想——先移除其他li上的active，再给当前获取的li加上active
+        // // i从0开始
+        // document.querySelector(`.slider-indicator .active`).classList.remove('active')
+        // document.querySelector(`.slider-indicator li:nth-child(${i + 1})`).classList.add('active')
+        // if (i >= sliderData.length - 1) {
+        //   i = -1
+        // }
+        common()
+      }, 1000)
+    })
+    prev.addEventListener('click', function () {
+      i--
+      if (i < 0) {
+        i = sliderData.length - 1
+      }
+      common()
+    })
+    next.addEventListener('click', function () {
+      i++
+      if (i >= sliderData.length) {
+        i = 0
+      }
+      common()
+    })
+    // 优化
+    function common() {
+      // 图片
+      img.src = sliderData[i].url
+      // 文字
+      p.innerHTML = sliderData[i].title
+      // 圆点
+      document.querySelector('.slider-indicator .active').classList.remove('active')
+      document.querySelector(`.slider-indicator li:nth-child(${i + 1})`).classList.add('active')
+    }
   </script>
 </body>
 
