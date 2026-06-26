@@ -99,7 +99,7 @@
     <div class="slider-footer">
       <p>对人类来说会不会太超前了？</p>
       <ul class="slider-indicator">
-        <li></li>
+        <li class="active"></li>
         <li></li>
         <li></li>
         <li></li>
@@ -126,30 +126,63 @@
       { url: './images/slider07.jpg', title: '一站式解决你的电脑配置问题！！！', color: 'rgb(53, 29, 25)' },
       { url: './images/slider08.jpg', title: '谁不想和小猫咪贴贴呢！', color: 'rgb(99, 72, 114)' },
     ]
-    // 随机生成一个数组的下标数字来进行更改
-    const random = parseInt(Math.random() * sliderData.length)
-    // 图片
-    // 获取元素
+    // // 随机生成一个数组的下标数字来进行更改
+    // const random = parseInt(Math.random() * sliderData.length)
+    // // 图片
+    // // 获取元素
+    // const img = document.querySelector('.slider-wrapper img')
+    // // 更改图片
+    // img.src = sliderData[random].url
+    // // 文字
+    // // 获取
+    // const p = document.querySelector('.slider-footer p')
+    // // 更改文字
+    // p.innerHTML = sliderData[random].title
+    // // slider-footer的背景颜色
+    // // 获取
+    // const color = document.querySelector('.slider-footer')
+    // // 更改
+    // color.style.backgroundColor = sliderData[random].color
+    // // 圆点随着随机数的变化而变化
+    // // 获取
+    // const circle = document.querySelector(`.slider-footer li:nth-child(${random + 1})`)
+    // console.log(random)
+    // console.log(circle)
+    // // 更改
+    // circle.classList.add('active')
+
+    // 轮播图自动播放
     const img = document.querySelector('.slider-wrapper img')
-    // 更改图片
-    img.src = sliderData[random].url
-    // 文字
-    // 获取
     const p = document.querySelector('.slider-footer p')
-    // 更改文字
-    p.innerHTML = sliderData[random].title
-    // slider-footer的背景颜色
-    // 获取
     const color = document.querySelector('.slider-footer')
-    // 更改
-    color.style.backgroundColor = sliderData[random].color
-    // 圆点随着随机数的变化而变化
-    // 获取
-    const circle = document.querySelector(`.slider-footer li:nth-child(${random + 1})`)
-    console.log(random)
-    console.log(circle)
-    // 更改
-    circle.classList.add('active')
+    let i = 0
+    // const circle = document.querySelector('.slider-indicator li:nth-child(i)')
+    // 要用模板字符串
+    // 写在定时器外面，i不会发生变化，只执行一次
+    // const circle = document.querySelector(`.slider-indicator li:nth-child(${i + 1})`)
+    setInterval(function () {
+      i++
+      // 无缝衔接
+      // 播到最后一张图片重置i
+      // if (i >= sliderData.length) {
+      //   i = 0
+      // }
+      // console.log(sliderData[i])
+      // 图片
+      img.src = sliderData[i].url
+      // 文字
+      p.innerHTML = sliderData[i].title
+      // 背景色
+      color.style.backgroundColor = sliderData[i].color
+      // 圆点
+      // 排他思想——先移除其他li上的active，再给当前获取的li加上active
+      // i从0开始
+      document.querySelector(`.slider-indicator .active`).classList.remove('active')
+      document.querySelector(`.slider-indicator li:nth-child(${i + 1})`).classList.add('active')
+      // if (i >= sliderData.length - 1) {
+      //   i = -1
+      // }
+    }, 1000)
   </script>
 </body>
 
