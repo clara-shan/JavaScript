@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      position: relative;
+      width: 500px;
+      height: 200px;
+      margin: auto;
+      text-align: center;
+      line-height: 200px;
+      background-color: skyblue;
+    }
+
+    .box h3 {
+      font-size: 80px;
+    }
+
+    .box .close {
+      position: absolute;
+      top: 0;
+      left: 480px;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      background-color: gray;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <button>按钮</button>
+  <div class="box">
+    <h3>广告</h3>
+    <div class="close">x</div>
+  </div>
+  <script>
+    // 点击按钮，弹出对话框
+    // 获取元素
+    // 事件源：button  事件类型：点击  事件程序：弹出对话框
+    // const btn = document.querySelector('button')
+    // btn.addEventListener('click', function () {
+    //   alert('Hello World')
+    // })
+    const close = document.querySelector('.box .close')
+    const box = document.querySelector('.box')
+    close.addEventListener('click', function () {
+      box.style.display = 'none'
+    })
+  </script>
+</body>
+
+</html>
