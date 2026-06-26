@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 500px;
+      height: 100px;
+      margin: auto;
+    }
+
+    .box .text {
+      margin-left: 250px;
+      margin-bottom: 50px;
+    }
+
+    .box .text h2 {
+      margin-bottom: 30px;
+    }
+
+    .box .btn {
+      margin-left: 250px;
+    }
+
+    .box .btn button {
+      margin-right: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="text">
+      <h2>随机点名</h2>
+      <p>姓名</p>
+    </div>
+    <div class="btn">
+      <button class="start">开始</button>
+      <button class="end">结束</button>
+    </div>
+  </div>
+
+  <script>
+    // 点击开始按钮姓名随机变化，按结束按钮停止变化
+    // const arr = ['赵云', '黄忠', '关羽', '田雷', '郑朋', '甜玉米']
+    // const start = document.querySelector('.start')
+    // const end = document.querySelector('.end')
+    // const p = document.querySelector('.text p')
+    // let timerId = 0
+    // let random = 0  // 因为random在事件检测中会重新赋值，所以不能用const声明
+    // start.addEventListener('click', function () {
+    //   // console.log(random)
+    //   // let timerId = setInterval () timerId是局部变量，关闭按钮无法调用
+    //   timerId = setInterval(function () {
+    //     // random是局部变量，关闭按钮无法调用
+    //     // const random = parseInt(Math.random() * arr.length)
+    //     random = Math.floor(Math.random() * arr.length)
+    //     p.innerHTML = arr[random]
+    //   }, 50)
+    //   if (arr.length === 1) {
+    //     start.disabled = true
+    //     end.disabled = true
+    //   }
+    // })
+    // end.addEventListener('click', function () {
+    //   clearInterval(timerId)
+    //   arr.splice(random, 1)
+    //   console.log(arr)
+    // })
+
+    // 注意
+    // 事件监听  语法：元素对象.addEventListener('事件类型'，要执行的函数)
+    // 例
+    // 事件监听里面的random和外面的random不一样，一个是局部变量，一个是全局变量
+    const random = Math.floor(Math.random() * arr.length)
+    start.addEventListener('click', function () {
+      // 为什么可以用const
+      // 因为JS里有垃圾回收机制，事件监听里函数的内容调用后会被清除
+      const random = Math.floor(Math.random() * arr.length)
+    })
+
+  </script>
+</body>
+
+</html>
