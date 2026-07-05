@@ -45,7 +45,9 @@
     <h3>广告</h3>
     <div class="close">x</div>
   </div>
+  <input type="text">
   <script>
+    // 1.鼠标事件
     // 点击按钮，弹出对话框
     // 获取元素
     // 事件源：button  事件类型：点击  事件程序：弹出对话框
@@ -57,6 +59,15 @@
     const box = document.querySelector('.box')
     close.addEventListener('click', function () {
       box.style.display = 'none'
+    })
+
+    // 2.焦点事件
+    const input = document.querySelector('input')
+    input.addEventListener('focus', function () {
+      console.log('有焦点触发')
+    })
+    input.addEventListener('blur', function () {
+      console.log('失去焦点触发')
     })
   </script>
 </body>
