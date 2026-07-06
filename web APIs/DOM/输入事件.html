@@ -137,6 +137,26 @@
     tx.addEventListener('blur', function () {
       total.style.opacity = 0
     })
+
+    // 事件对象
+    const item = document.querySelector('.item')
+    const text = document.querySelector('.item .text')
+    tx.addEventListener('keyup', function (e) {
+      if (e.key === 'Enter') {
+        // 当用户输入的值不为空时执行
+        // item.style.display = 'block'
+        // text.innerHTML = tx.value
+        // 如果用户输入的是空字符串，tx.value.trim() === ''
+        // ''为false，if(false) {不执行}
+        // if (tx.value.trim() !== '') {
+        if (tx.value.trim()) {
+          item.style.display = 'block'
+          text.innerHTML = tx.value
+        }
+        tx.value = ''
+        total.innerHTML = '0/200字'
+      }
+    })
   </script>
 </body>
 
