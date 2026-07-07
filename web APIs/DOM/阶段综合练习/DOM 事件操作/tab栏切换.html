@@ -74,11 +74,11 @@
     <div class="tab-nav">
       <h3>每日特价</h3>
       <ul>
-        <li><a class="active" href="javascript:;">精选</a></li>
-        <li><a href="javascript:;">美食</a></li>
-        <li><a href="javascript:;">百货</a></li>
-        <li><a href="javascript:;">个护</a></li>
-        <li><a href="javascript:;">预告</a></li>
+        <li><a class="active" href="javascript:;" data-id="0">精选</a></li>
+        <li><a href="javascript:;" data-id="1">美食</a></li>
+        <li><a href="javascript:;" data-id="2">百货</a></li>
+        <li><a href="javascript:;" data-id="3">个护</a></li>
+        <li><a href="javascript:;" data-id="4">预告</a></li>
       </ul>
     </div>
     <div class="tab-content">
@@ -91,21 +91,33 @@
   </div>
 
   <script>
-    // 获取a
-    const as = document.querySelectorAll('.tab-nav a')
-    // 给每个a都绑定监听事件
-    for (let i = 0; i < as.length; i++) {
-      as[i].addEventListener('mouseenter', function () {
-        // 排他思想
-        document.querySelector('.tab-nav .active').classList.remove('active')
-        // 环境对象
-        this.classList.add('active')
-        // 变换图片 → 清除所有.active，第i+1个div添加.active
-        document.querySelector('.tab-content .active').classList.remove('active')
-        document.querySelector(`.tab-content div:nth-child(${i + 1})`).classList.add('active')
-      })
-    }
+    // // 获取a
+    // const as = document.querySelectorAll('.tab-nav a')
+    // // 给每个a都绑定监听事件
+    // for (let i = 0; i < as.length; i++) {
+    //   as[i].addEventListener('mouseenter', function () {
+    //     // 排他思想
+    //     document.querySelector('.tab-nav .active').classList.remove('active')
+    //     // 环境对象
+    //     this.classList.add('active')
+    //     // 变换图片 → 清除所有.active，第i+1个div添加.active
+    //     document.querySelector('.tab-content .active').classList.remove('active')
+    //     document.querySelector(`.tab-content div:nth-child(${i + 1})`).classList.add('active')
+    //   })
+    // }
 
+    // 事件委托
+    const ul = document.querySelector('.tab-nav ul')
+    const items = document.querySelectorAll('.tab-content .item')
+    ul.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        document.querySelector('.tab-nav .active').classList.remove('active')
+        e.target.classList.add('active')
+        document.querySelector('.tab-content .active').classList.remove('active')
+        const i = +e.target.dataset.id
+        items[i].classList.add('active')
+      }
+    })
   </script>
 </body>
 
