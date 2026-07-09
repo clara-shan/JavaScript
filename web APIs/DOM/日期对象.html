@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    // const date = new Date()
+    // console.log(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`)
+    // const d = document.querySelector('div')
+    // function getMyDate() {
+    //   const date = new Date()
+    //   let h = date.getHours()
+    //   let m = date.getMinutes()
+    //   let s = date.getSeconds()
+    //   h = h > 10 ? h : '0' + h
+    //   m = m > 10 ? m : '0' + m
+    //   s = s > 10 ? s : '0' + s
+    //   return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()} ${h}:${m}:${s}`
+    // }
+    // d.innerHTML = getMyDate()
+    // // console.log(date.getMinutes())
+    // setInterval(function () {
+    //   d.innerHTML = getMyDate()
+    // }, 1000)
+
+    // const d = document.querySelector('div')
+    // // 刷新页面出现短暂空白
+    // const date = new Date()
+    // d.innerHTML = date.toLocaleString()
+    // setInterval(function () {
+    //   const date = new Date()
+    //   d.innerHTML = date.toLocaleString()
+    // }, 1000)
+
+
+    // 时间戳
+    const arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+    // console.log(new Date().getDay())
+    console.log(arr[new Date().getDay()])
+  </script>
+</body>
+
+</html>
