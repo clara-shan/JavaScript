@@ -1216,17 +1216,63 @@
   </div>
 
   <script>
+    // 放到自执行函数里，防止变量污染
     // 电梯导航移动到指定位置显示
-    const elevator = document.querySelector('.xtx-elevator')
-    const n = document.documentElement
-    const header = document.querySelector('.xtx_panel_header')
-    window.addEventListener('scroll', function () {
-      if (n.scrollTop >= header.offsetTop) {
-        elevator.style.opacity = 1
-      } else {
-        elevator.style.opacity = 0
-      }
-    })
+    (function () {
+      const elevator = document.querySelector('.xtx-elevator')
+      const backTop = document.querySelector('#backTop')
+      window.addEventListener('scroll', function () {
+        const n = document.documentElement
+        if (n.scrollTop >= 300) {
+          elevator.style.opacity = 1
+        } else {
+          elevator.style.opacity = 0
+        }
+      })
+      backTop.addEventListener('click', function () {
+        document.documentElement.scrollTop = 0
+      })
+    })();
+
+    // 点击电梯导航里的小模块跳转到页面的大模块里
+    (function () {
+      const list = document.querySelector('.xtx-elevator-list')
+      list.addEventListener('click', function (e) {
+        const n = document.documentElement
+        if (e.target.tagName === 'A' && e.target.dataset.name) {
+          // 获取active对象
+          const old = document.querySelector('.xtx-elevator-list .active')
+          // 判断是否有类名active
+          if (old) old.classList.remove('active')
+          e.target.classList.add('active')
+          // 点击小模块获得对应大模块的offsetTop
+          const top = document.querySelector(`.xtx_goods_${e.target.dataset.name}`).offsetTop
+          n.scrollTop = top
+        }
+      })
+
+
+      // 页面滚动到大盒子对应的小盒子加上active
+      window.addEventListener('scroll', function () {
+        // 先判断移除
+        const old = document.querySelector('.xtx-elevator-list .active')
+        if (old) old.classList.remove('active')
+        const news = document.querySelector('.xtx_goods_new')
+        const popular = document.querySelector('.xtx_goods_popular')
+        const brand = document.querySelector('.xtx_goods_brand')
+        const topic = document.querySelector('.xtx_goods_topic')
+        const n = document.documentElement.scrollTop
+        if (n >= news.offsetTop && n < popular.offsetTop) {
+          document.querySelector('[data-name=new]').classList.add('active')
+        } else if (n >= popular.offsetTop && n < brand.offsetTop) {
+          document.querySelector('[data-name=popular]').classList.add('active')
+        } else if (n >= brand.offsetTop && n < topic.offsetTop) {
+          document.querySelector('[data-name=brand]').classList.add('active')
+        } else if (n >= topic.offsetTop) {
+          document.querySelector('[data-name=topic]').classList.add('active')
+        }
+      })
+    })();
   </script>
 </body>
 
