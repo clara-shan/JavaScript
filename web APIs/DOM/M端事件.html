@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 1000px;
+      height: 1000px;
+      background-color: pink;
+    }
+
+    div {
+      width: 500px;
+      height: 500px;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div></div>
+  </div>
+
+  <script>
+    const box = document.querySelector('.box')
+    const div = document.querySelector('div')
+    box.addEventListener('touchstart', function () {
+      console.log('触摸')
+    })
+    box.addEventListener('touchmove', function () {
+      console.log('滑动')
+    })
+    box.addEventListener('touchend', function () {
+      console.log('移开')
+    })
+  </script>
+</body>
+
+</html>
