@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // const str = '我正在学习前端，加油！'
+    // const reg = /前端/
+    // console.log(reg.test(str))
+    // console.log(reg.exec(str))
+    console.log('------------------------------')
+    // 元字符
+    // 边界符 ^
+    console.log(/^好/.test('好'))
+    console.log(/^好/.test('你好'))
+    console.log('------------------------------')
+    // $
+    console.log(/好$/.test('好'))
+    console.log(/好$/.test('好的'))
+    console.log('------------------------------')
+    // ^和$一起是精准匹配
+    console.log(/^好$/.test('好'))
+    console.log(/^好$/.test('好好'))
+    console.log('------------------------------')
+    // 量词 * --> >=0
+    console.log(/^好*$/.test(''))
+    console.log(/^好*$/.test('好'))
+    console.log(/^好*$/.test('你好'))
+    console.log(/^好*$/.test('好好'))
+    console.log('------------------------------')
+    // + --> >=1
+    console.log(/^好+$/.test(''))
+    console.log(/^好+$/.test('好'))
+    console.log(/^好+$/.test('好好'))
+    console.log('------------------------------')
+    // ? -->  1||0
+    console.log(/^好?$/.test(''))
+    console.log(/^好?$/.test('好'))
+    console.log(/^好?$/.test('好好'))
+    console.log('------------------------------')
+    // {n}  -->  =n
+    console.log(/^好{3}$/.test('好'))
+    console.log(/^好{3}$/.test('好好'))
+    console.log(/^好{3}$/.test('好好好'))
+    console.log('------------------------------')
+    // {n,}  -->  >=n
+    console.log(/^好{3,}$/.test('好'))
+    console.log(/^好{3,}$/.test('好好'))
+    console.log(/^好{3,}$/.test('好好好'))
+    console.log(/^好{3,}$/.test('好好好好'))
+    console.log(/^好{3,}$/.test('好好好好好'))
+    console.log(/^好{3,}$/.test('好好好好好好'))
+    console.log('------------------------------')
+    // {n,m}  -->  >=n&&<=m
+    console.log(/^好{3,6}$/.test('好'))
+    console.log(/^好{3,6}$/.test('好好'))
+    console.log(/^好{3,6}$/.test('好好好'))
+    console.log(/^好{3,6}$/.test('好好好好'))
+    console.log(/^好{3,6}$/.test('好好好好好'))
+    console.log(/^好{3,6}$/.test('好好好好好好'))
+    console.log(/^好{3,6}$/.test('好好好好好好好'))
+    console.log(/^好{3,6}$/.test('好好好好好好好好'))
+    console.log('------------------------------')
+    // 字符类
+    // []
+    console.log(/^[abc]$/.test('a'))
+    console.log(/^[abc]$/.test('b'))
+    console.log(/^[abc]$/.test('c'))
+    console.log(/^[abc]$/.test('ab'))
+    console.log(/^[abc]{2}$/.test('ab'))
+    console.log(/[abc]/.test('ab'))
+    console.log('------------------------------')
+    // []里面加上连字符
+    console.log(/^[a-z]$/.test('a'))
+    console.log(/^[a-z]$/.test('z'))
+    console.log(/^[a-zA-Z]$/.test('R'))
+    console.log(/^[0-9]$/.test(10))
+    console.log(/[0-9]/.test(10))
+    console.log(/^[0-9]$/.test(9))
+    console.log('------------------------------')
+    // []里面加上^取反
+    console.log(/^[^a-z]$/.test('a'))
+    console.log(/^[^a-z]$/.test('z'))
+    console.log(/[^a-zA-Z]/.test('R'))
+    console.log(/[^0-9]/.test(9))
+    console.log(/[^a-zA-Z0-9]/.test('/'))
+    console.log('------------------------------')
+    console.log(/^.$/.test('/n'))
+    console.log(/^.$/.test('n'))
+    console.log('------------------------------')
+    // 预定义
+    console.log(/^\d{4}-\d{1,2}-\d{1,2}$/.test('2026.8.3'))
+    console.log(/^\d{4}-\d{1,2}-\d{1,2}$/.test('2026-13-32'))
+    console.log('------------------------------')
+    // 修饰符 i  g
+    const str = 'java有点难，Java挺好'
+    console.log(str.replace(/java/gi, '前端'))
+  </script>
+</body>
+
+</html>
