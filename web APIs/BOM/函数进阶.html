@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>提交</button>
+  <script>
+    // 函数提升
+    // fn()
+    // function fn() {
+    //   let i = 1
+    //   console.log(i)
+    // }
+    // 函数参数
+    // 动态参数
+    // function fn() {
+    //   let sum = 0
+    //   for (let i = 0; i < arguments.length; i++) {
+    //     sum += arguments[i]  //arguments是伪数组
+    //   }
+    //   return sum
+    // }
+    // console.log(fn(1, 2, 3))
+    // console.log(fn(1, 2, 3, 4, 5))
+    // 剩余参数
+    // function fun(...args) {  //不知道参数有几个
+    //   let sum = 0
+    //   for (let i = 0; i < args.length; i++) {
+    //     sum += args[i]
+    //   }
+    //   return sum
+    // }
+    // console.log(fun(1, 2, 3))
+    // console.log(fun(1, 2, 3, 4, 5))
+    // 展开运算符
+    // let arr1 = [1, 2, 3, 4, 5]
+    // let arr2 = [0, 1, 2, 3, 4, 5]
+    // console.log(Math.max(...arr1))
+    // console.log(Math.min(...arr1))
+    // let Arr = [...arr1, ...arr2]
+    // console.log((Arr))
+    // 箭头函数
+    // const btn = document.querySelector('button')
+    // btn.addEventListener('click', e => e.preventDefault())
+    // const fn = (uname) => ({ uname: uname })   //对象
+    // console.log(fn('lp'))
+    // const fun = (...args) => {
+    //   let sum = 0
+    //   for (let i = 0; i < args.length; i++) {
+    //     sum += args[i]
+    //   }
+    //   return sum
+    // }
+    // console.log(fun(1, 2, 3, 4))
+    const obj = {
+      uname: 'lp',
+      fn: function () {
+        // console.log(this)
+        const fun = () => {
+          console.log(this)
+        }
+        fun()
+      }
+    }
+    obj.fn()
+  </script>
+</body>
+
+</html>
