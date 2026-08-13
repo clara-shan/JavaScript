@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Object
+    const o = { uname: 'pink', age: 18 }
+    console.log(Object.keys(o))  // 获得对象里的属性名
+    console.log(Object.values(o))  // 获得对象里的属性值
+    // 拷贝对象o里面的数据
+    const oo = {}
+    Object.assign(oo, o)
+    console.log(oo)
+
+    // Array    sort() forEach() filter() map() join() reduce() find() every()
+    // reduce() 数组中所有数据的累加和 没有初始值就写0，尽量写上初始值
+    const arr = [1, 2, 3, 4, 5]
+    const total = arr.reduce((prev, current) => prev + current, 0)
+    console.log(total)
+    const total1 = arr.reduce((prev, current) => prev + current, 10)
+    console.log(total1)
+    const arr1 = [{
+      name: '张三',
+      salary: 10000
+    },
+    {
+      name: '李四',
+      salary: 10000
+    },
+    {
+      name: '王五',
+      salary: 20000
+    }]
+    const total2 = arr1.reduce((prev, current) => prev + current.salary, 0)
+    console.log(total2)
+    // 工资涨30%
+    const total3 = arr1.reduce((prev, current) => prev + current.salary * 1.3, 0)
+    console.log(total3)
+
+    // find()
+    const arr3 = [
+      {
+        name: '小米',
+        price: 1999
+      },
+      {
+        name: '华为',
+        price: 3999
+      },
+      {
+        name: '小米10',
+        price: 3999
+      }
+    ]
+    const mi = arr3.find(item => item.name === '小米')  // 只会返回name='小米'的第一组数据
+    console.log(mi)
+
+    // every()  与filter()的区别是filter返回筛选后的新数组
+    const arr4 = [10, 40, 60, 80]
+    const flag = arr4.every(item => item > 20)  // 只要有一个数据小于等于20就返回true
+    console.log(flag)
+
+    // some()
+    const arr5 = [1, 2, 3, 4, 25]
+    const flag1 = arr5.some(item => item > 20)  // 只要有一个数据大于20就返回true
+    console.log(flag1)
+  </script>
+</body>
+
+</html>
