@@ -8,6 +8,12 @@
 </head>
 
 <body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+  <div></div>
   <script>
     // Object
     const o = { uname: 'pink', age: 18 }
@@ -17,6 +23,10 @@
     const oo = {}
     Object.assign(oo, o)
     console.log(oo)
+
+    const spec = { size: '40cm*40cm', color: '黑色' }
+    console.log(Object.values(spec))
+    document.write(Object.values(spec).join('/'))
 
     // Array    sort() forEach() filter() map() join() reduce() find() every()
     // reduce() 数组中所有数据的累加和 没有初始值就写0，尽量写上初始值
@@ -70,6 +80,52 @@
     const arr5 = [1, 2, 3, 4, 25]
     const flag1 = arr5.some(item => item > 20)  // 只要有一个数据大于20就返回true
     console.log(flag1)
+
+    // concat()  把数组内容拼接到一起并返回新数组
+    const arr6 = arr4.concat(arr5)
+    console.log(arr6)
+
+    // Array.from()  把伪数组转换为新数组
+    const lis = document.querySelectorAll('ul li')
+    console.log(lis)
+    arr5.push(3)
+    console.log(arr5)
+    // lis.push(3)
+    const lis1 = Array.from(lis)
+    lis1.push(3)
+    console.log(lis1)
+
+
+    // String
+    // split()  把字符串转化为数组
+    const str = '喜之郎，多点关心多点爱'
+    console.log(str.split('，'))
+    const str2 = "2026-8-17"
+    console.log(str2.split('-'))
+
+    const gift = '50g的茶叶,清洗球'
+    const arr8 = gift.split(',')
+    console.log(arr8)
+    document.querySelector('div').innerHTML = arr8.map(item => `<span>【赠品】${item}</span> </br>`).join('')
+
+    // substring() 截取字符串
+    console.log(str.substring(4))
+
+    // startWith()
+    console.log(str.startsWith('喜'))
+    // endsWith()
+    console.log(str2.endsWith('8'))
+
+    // includes()
+    console.log(str.includes('你'))
+
+
+    // Number
+    // toFixed() 设置保留小数位的长度，四舍五入
+    const num = 12.975
+    const num2 = 12.432
+    console.log(num.toFixed(1))
+    console.log(num2.toFixed(1))
   </script>
 </body>
 
