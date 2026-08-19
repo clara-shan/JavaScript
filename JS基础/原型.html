@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 原型对象
+    const arr = [5, 8, 1]
+    // 数组中最大值和最小值
+    // Array.prototype是JS 原生数组所有实例共用的原型对象  只能追加方法
+    Array.prototype.max = function () {
+      return Math.max(...this)
+    }
+    Array.prototype.min = function () {
+      return Math.min(...this)
+
+    }
+    Array.prototype.sum = function () {
+      return this.reduce((prev, item) => prev + item, 0)
+
+    }
+    console.log(arr.max())
+    console.log(arr.min())
+    console.log(arr.sum())
+
+    // constructor属性
+    function Swq(name) {
+      this.uname = name
+    }
+    console.log(Swq.prototype)
+    Swq.prototype = {
+      constructor: Swq,    // constructor为原型指向构造函数
+      sing: function () {
+        console.log('唱歌')
+      },
+      dance: function () {
+        console.log('跳舞')
+      },
+    }
+    console.log(Swq.prototype)
+
+    // 对象原型 __proto__
+    const swq = new Swq('swq')
+    console.log(swq.__proto__)  // 指向原型对象
+    console.log(swq.__proto__.constructor)  // 指向构造函数
+  </script>
+</body>
+
+</html>
