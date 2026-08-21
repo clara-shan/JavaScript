@@ -28,6 +28,7 @@
     console.log(arr.min())
     console.log(arr.sum())
 
+
     // constructor属性
     function Swq(name) {
       this.uname = name
@@ -44,10 +45,79 @@
     }
     console.log(Swq.prototype)
 
+
     // 对象原型 __proto__
     const swq = new Swq('swq')
     console.log(swq.__proto__)  // 指向原型对象
     console.log(swq.__proto__.constructor)  // 指向构造函数
+    console.log('------------------------------')
+
+
+    // 原型继承  复用代码，不要重复写一模一样的逻辑
+    // function Woman() {
+    //   this.eyes= 2
+    //   this.ears= 2
+    //   this.head= 1
+    //   this.baby= function () {
+    //     console.log('baby')
+    //   }
+    // }
+    // function Man() {
+    //   this.eyes= 2
+    //   this.ears= 2
+    //   this.head= 1
+    //   this.baby= function () {
+    //     console.log('baby')
+    //   }
+    // }
+    // eyes，ears，head是公共属性  封装到一个构造函数里
+    function Person() {
+      this.eyes = 2
+      this.ears = 2
+      this.head = 1
+    }
+    // 子构造函数可以从Person中继承
+    function Woman() {
+
+    }
+    function Man() {
+
+    }
+    // const Person = {
+    //   eyes : 2,
+    //   ears : 2,
+    //   head : 1
+    // }
+    // Woman.prototype = Person   // 对象属于复杂数据类型，存储在堆里面，通过存储在栈里面的地址可以找到对象存储在堆里面的数据
+    // Man.prototype = Person     // Woman和Man的原型都指向Person，修改任一方都会影响Person对象
+
+    // 通过new关键字进行实例化可以让每个子构造函数独立，更改某一构造函数的任一属性或方法其他子构造函数不受影响
+    Woman.prototype = new Person()
+    Man.prototype = new Person()
+    Woman.prototype.constructor = Woman
+    Man.prototype.constructor = Man
+    const lady = new Woman()
+    const gentleman = new Man()
+    console.log(lady)
+    console.log(gentleman)
+    Woman.prototype.baby = function () {
+      console.log('baby')
+    }
+    console.log(lady)
+    console.log(gentleman)
+    console.log(lady.__proto__)  // 实例对象里没有构造函数原型里的数据，但所有对象都有对象原型，__proto__指向构造函数.prototype，所以实例对象能获取到构造函数中属性原型的数据
+    console.log(gentleman.__proto__)
+
+    // 原型链  查找规则  通过实例对象的属性__proto__向上查找
+    const lp = new Man()
+    console.log(lp.__proto__ === Man.prototype)
+    console.log(Man.prototype.__proto__ === Person.prototype)
+    console.log(Person.prototype.__proto__ === Object.prototype)
+    console.log(lp instanceof Man)
+    console.log(lp instanceof Person)
+    console.log(lp instanceof Object)
+    console.log(lp instanceof Array)
+    console.log(arr instanceof Array)
   </script>
 </body>
 
