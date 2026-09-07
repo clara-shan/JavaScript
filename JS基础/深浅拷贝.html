@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const arr = [1, 2, 3, 4]
+
+    const obj = {
+      name: '张三',
+      hobby: function () {
+        like: 'sing'
+      }
+    }
+
+    // 浅拷贝
+    const arr1 = arr.concat()
+    // const arr1 = [...arr]
+    console.log(arr1)
+    // const o = {}
+    // Object.assign(o, obj)
+    const o = { ...obj }
+    o.hobby.like = 'dance'
+    console.log(obj)
+    console.log(o)
+
+
+  </script>
+</body>
+
+</html>
