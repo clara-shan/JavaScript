@@ -8,27 +8,103 @@
 </head>
 
 <body>
+  <div></div>
+  <script src="./lodash.min.js"></script>
   <script>
-    const arr = [1, 2, 3, 4]
+    // const arr = [1, 2, 3, 4]
 
-    const obj = {
-      name: '张三',
-      hobby: function () {
-        like: 'sing'
-      }
-    }
+    // const obj = {
+    //   name: '张三',
+    //   hobby: {
+    //     like: 'sing'
+    //   }
+    // }
 
     // 浅拷贝
-    const arr1 = arr.concat()
+    // const arr1 = arr.concat()
     // const arr1 = [...arr]
-    console.log(arr1)
+    // console.log(arr1)
     // const o = {}
     // Object.assign(o, obj)
-    const o = { ...obj }
-    o.hobby.like = 'dance'
-    console.log(obj)
-    console.log(o)
+    // const o = { ...obj }
+    // o.hobby.like = 'dance'
+    // console.log(obj)
+    // console.log(o)
 
+    // 手写浅拷贝
+    // function shadowCopy(newObj, oldObj) {
+    //   for (let k in oldObj) {
+    //     newObj[k] = oldObj[k]
+    //   }
+    // }
+    // shadowCopy(o, obj)
+    // o.hobby.like = 'dance'
+    // console.log(o)
+    // console.log(obj)
+
+    // 深拷贝
+    const obj = {
+      age: 18,
+      hobby: ['乒乓球', '足球'],
+      family: {
+        member: 3
+      }
+    }
+    // const o = {}
+
+    // 函数递归
+    let i = 0
+    function count() {
+      i++
+      console.log(i)
+      if (i >= 9) {
+        return
+      }
+      count()
+    }
+    count()
+
+    // 手写深拷贝
+    // function deepCopy(newObj, oldObj) {
+    //   for (let k in oldObj) {
+    //     // 逐层分析是否存在数组或对象 (通过递归函数对数组或对象进行循环)
+    //     if (oldObj[k] instanceof Array) {
+    //       newObj[k] = []
+    //       deepCopy(newObj[k], oldObj[k])
+    //     } else if (oldObj[k] instanceof Object) {
+    //       newObj[k] = {}
+    //       deepCopy(newObj[k], oldObj[k])
+    //     } else {
+    //       // o.age = obj.age
+    //       newObj[k] = oldObj[k]  // 如果newObj没有属性k，这句话就是给newObj添加名为k的属性；如果已经存在就覆盖修改这个属性的值
+    //     }
+    //   }
+    // }
+    // deepCopy(o, obj)
+    // console.log(obj)
+    // o.hobby[0] = '篮球'
+    // o.family.member = 4
+    // console.log(o)
+
+    // 用递归函数实现 setTimeout 模拟 setInterval效果
+    function getTimer() {
+      document.querySelector('div').innerHTML = new Date().toLocaleString()
+      setTimeout(getTimer, 1000)
+    }
+    getTimer()
+
+    // lodash实现深拷贝
+    // const o = _.cloneDeep(obj)
+    // o.hobby[1] = '羽毛球'
+    // console.log(o)
+    // console.log(obj)
+    // console.log(o.hobby[0] === obj.hobby[0])
+
+    // 利用JSON实现深拷贝
+    const o = JSON.parse(JSON.stringify(obj))
+    o.age = 23
+    console.log(o)
+    console.log(obj)
 
   </script>
 </body>
