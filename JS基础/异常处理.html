@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="hi"></div>
+  <script>
+    // throw抛异常
+    function fn(x, y) {
+      if (!x || !y) {
+        // throw '没有参数传进来'   // throw 数据 后面可以跟任意类型的值，不会调用堆栈，找不到报错行
+        throw new Error('没有参数传进来')  // new Error()创建标准错误对象，传入错误提示文字，调用堆栈
+      }
+      return x + y
+    }
+    // fn()
+
+    // try/catch 捕获异常
+    function fn1() {
+      try {
+        const h = document.querySelector('hi')
+        h.innerHTML = 'hello'
+      } catch (err) {
+        throw new Error('选择器有没有选错')
+      } finally {
+        alert('Are you ok?')
+      }
+    }
+    // fn1()
+
+    // debugger  JS内置断点命令
+    let i = 0
+    function fn2() {
+      i++
+      if (i >= 10) {
+        return
+      }
+      debugger
+      fn2()
+    }
+    fn2()
+  </script>
+</body>
+
+</html>
